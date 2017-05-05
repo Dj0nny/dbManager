@@ -1,6 +1,6 @@
 import mysql.connector
 from mysql.connector import errorcode
-
+ 
 def menu():
     print("Select an option:\n")
     print("\t 1 - Insert Data")
@@ -11,7 +11,7 @@ def menu():
     return ch
 
 try:
-  connection = mysql.connector.connect(user = 'root', password = '', database = 'python')
+  connection = mysql.connector.connect(user = '....', password = '....', database = '.....') # Your data
 except mysql.connector.Error as err:
  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
    print("The username or the password is wrong")
@@ -30,14 +30,14 @@ while(exit != -1):
         cursor1 = connection.cursor()
         name = input("Insert name: \n")
         surname = input("Insert surname: \n")
-        cursor1.execute("INSERT INTO `prova`(`nome`, `cognome`) VALUES (%s, %s)", (name, surname))
+        cursor1.execute("INSERT INTO `myDb`(`name`, `surname`) VALUES (%s, %s)", (name, surname)) # Change this query with your data
         connection.commit()
         cursor1.close()
     elif(choice == 2):
         cursor2 = connection.cursor()
-        cursor2.execute("SELECT * FROM prova")
-        for (nome, cognome) in cursor2:
-            print("\t{}, {}".format(nome, cognome))
+        cursor2.execute("SELECT * FROM myDB") # Change this query with your data
+        for (name, surname) in cursor2:
+            print("\t{}, {}".format(name, surname)) # Change .format(v1, v2, ... , vn) with your variables
         cursor2.close()
         print("\n")
     elif(choice == -1):
