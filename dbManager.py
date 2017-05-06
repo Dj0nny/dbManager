@@ -5,6 +5,7 @@ def menu():
     print("Select an option:\n")
     print("\t 1 - Insert Data")
     print("\t 2 - Print Database")
+    print("\t 3-  Selection with parameters")
     print("\t-1 - For aborting the program\n")
     prompt = "Insert option's number: "
     ch = input(prompt)
